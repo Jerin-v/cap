@@ -19,7 +19,22 @@ function App() {
   });
 
   const submitForm = () => {
-    
+    let defaultValues = {
+      format: "jpeg",
+      no_ads: "true",
+      no_cookie_banners: "true",
+      width: "1920",
+      height: "1080",
+    };
+    if(inputs.url == "" || inputs.url == " ") {
+      alert("You forgot to submit a url!")
+    } else {
+      for(const [key,value] of Object.entries(inputs)) {
+        if(value = "") {
+          inputs[key] = defaultValues[key]
+        }
+      }
+    }
   }
 
   return (
